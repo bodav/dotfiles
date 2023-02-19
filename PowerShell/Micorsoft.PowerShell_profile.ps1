@@ -1,7 +1,6 @@
 New-Alias g goto
 
-$ENV:STARSHIP_CONFIG = "$HOME\.starship\starship.toml"
-Invoke-Expression (&starship init powershell)
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/powerlevel10k_rainbow.omp.json" | Invoke-Expression
 
 $env:Path += ";C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\x64"
 $env:Path += ";C:\dev\cmdtools"
@@ -9,6 +8,8 @@ $env:Path += ";C:\dev\cmdtools"
 # Proxy settings
 [System.Net.WebRequest]::DefaultWebProxy = [System.Net.WebRequest]::GetSystemWebProxy()
 [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials
+
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 function goto {
     param (
