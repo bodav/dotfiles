@@ -10,6 +10,18 @@ $env:Path += ";C:\dev\cmdtools"
 [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials
 
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadLineKeyHandler -Chord 'Ctrl+f' -Function ForwardWord
+Set-PSReadLineKeyHandler -Chord 'Enter' -Function ValidateAndAcceptLine
+$PSROptions = @{
+        ContinuationPrompt = '  '
+        Colors             = @{
+            Operator         = $PSStyle.Foreground.Magenta
+            Parameter        = $PSStyle.Foreground.Magenta
+            Selection        = $PSStyle.Background.BrightBlack
+            InLinePrediction = $PSStyle.Foreground.BrightYellow + $PSStyle.Background.BrightBlack
+        }
+    }
+Set-PSReadLineOption @PSROptions
 
 function goto {
     param (
