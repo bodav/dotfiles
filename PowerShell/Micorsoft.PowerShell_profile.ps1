@@ -14,15 +14,18 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineKeyHandler -Chord 'Ctrl+f' -Function ForwardWord
 Set-PSReadLineKeyHandler -Chord 'Enter' -Function ValidateAndAcceptLine
 $PSROptions = @{
-        ContinuationPrompt = '  '
-        Colors             = @{
-            Operator         = $PSStyle.Foreground.Magenta
-            Parameter        = $PSStyle.Foreground.Magenta
-            Selection        = $PSStyle.Background.BrightBlack
-            InLinePrediction = $PSStyle.Foreground.BrightYellow + $PSStyle.Background.BrightBlack
-        }
+    ContinuationPrompt = '  '
+    Colors             = @{
+        Operator         = $PSStyle.Foreground.Magenta
+        Parameter        = $PSStyle.Foreground.Magenta
+        Selection        = $PSStyle.Background.BrightBlack
+        InLinePrediction = $PSStyle.Foreground.BrightYellow + $PSStyle.Background.BrightBlack
     }
+}
 Set-PSReadLineOption @PSROptions
+
+#Install-Module -Name Terminal-Icons -Repository PSGallery
+Import-Module -Name Terminal-Icons
 
 function goto {
     param (
@@ -71,16 +74,16 @@ function ll {
 }
 
 function grep($regex, $dir) {
-        if ( $dir ) {
-                Get-ChildItem $dir | select-string $regex
-                return
-        }
-        $input | select-string $regex
+    if ( $dir ) {
+        Get-ChildItem $dir | select-string $regex
+        return
+    }
+    $input | select-string $regex
 }
 
 function find-file($name) {
-        Get-ChildItem -recurse -filter "*${name}*" -ErrorAction SilentlyContinue | ForEach-Object {
-                $place_path = $_.directory
-                Write-Output "${place_path}\${_}"
-        }
+    Get-ChildItem -recurse -filter "*${name}*" -ErrorAction SilentlyContinue | ForEach-Object {
+        $place_path = $_.directory
+        Write-Output "${place_path}\${_}"
+    }
 }
