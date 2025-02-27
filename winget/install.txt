@@ -11,4 +11,3 @@ GitHub.GitHubDesktop
 Microsoft.WindowsTerminal
 Discord.Discord
 CCPGames.EVEOnline
-Blizzard.BattleNet
