@@ -26,3 +26,21 @@ Write-Host "Updating all installed apps..."
 winget upgrade --all --silent --accept-package-agreements --accept-source-agreements
 
 Write-Host "All tasks completed."
+
+
+function del-desktop-shortcuts {
+    # TODO: Remove desktop shortcuts
+    # Register events for removing desktop shortcuts
+    $desktopPaths = [Environment]::GetFolderPath('Desktop'), [Environment]::GetFolderPath('CommonDesktop')
+
+    foreach ($dir in $desktopPaths) {
+        $Watcher = [System.IO.FileSystemWatcher]::new([Environment]::GetFolderPath($dir), "*.lnk")
+        [void](Register-ObjectEvent -InputObject $Watcher -EventName "Created" -SourceIdentifier $dir -Action { Remove-Item -Force $EventArgs.FullPath })
+    }
+  
+    # Install WinGet
+    winget install $args
+  
+    # Unregister Events
+    foreach ($dir in $desktopPaths) { Unregister-Event -SourceIdentifier $dir }
+}
