@@ -1,3 +1,7 @@
+#
+# irm -Uri "https://raw.githubusercontent.com/bodav/dotfiles/refs/heads/main/winget/winget.ps1" | Invoke-Expression
+#
+
 # URL to fetch the list of apps
 $url = "https://raw.githubusercontent.com/bodav/dotfiles/refs/heads/main/winget/install.txt"
 
