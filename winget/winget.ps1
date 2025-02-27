@@ -1,13 +1,15 @@
-# List of apps to install
-$apps = @(
-    "Microsoft.VisualStudioCode",
-    "Google.Chrome",
-    "Mozilla.Firefox",
-    "7zip.7zip",
-    "Notepad++.Notepad++",
-    "Git.Git",
-    "Spotify.Spotify"
-)
+# URL to fetch the list of apps
+$url = "https://raw.githubusercontent.com/bodav/dotfiles/refs/heads/main/winget/install.txt"
+
+# Fetch the list of apps from the URL
+try {
+    $apps = Invoke-RestMethod -Uri $url -ErrorAction Stop
+    $apps = $apps -split "`n" | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne "" }
+}
+catch {
+    Write-Host "Failed to fetch the list of apps from the URL."
+    exit 1
+}
 
 # Install apps
 foreach ($app in $apps) {
