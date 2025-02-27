@@ -1,0 +1,14 @@
+Docker.DockerDesktop
+Microsoft.VisualStudioCode
+OpenJS.NodeJS
+Google.Chrome
+7zip.7zip
+Notepad++.Notepad++
+Git.Git
+Microsoft.PowerToys
+Microsoft.PowerShell
+GitHub.GitHubDesktop
+Microsoft.WindowsTerminal
+Discord.Discord
+CCPGames.EVEOnline
+Blizzard.BattleNet
