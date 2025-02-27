@@ -11,3 +11,4 @@ GitHub.GitHubDesktop
 Microsoft.WindowsTerminal
 Discord.Discord
 CCPGames.EVEOnline
+clsid2.mpc-hc
