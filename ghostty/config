@@ -1,0 +1,17 @@
+window-height = 25
+window-width = 110
+
+adjust-underline-position = 40%
+adjust-underline-thickness = -60%
+
+cursor-style = block
+cursor-style-blink = true
+
+shell-integration = zsh
+shell-integration-features = no-cursor
+
+confirm-close-surface = false
+clipboard-paste-protection = false
+unfocused-split-opacity = 1.0
+
+copy-on-select = clipboard
