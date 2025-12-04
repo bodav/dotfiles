@@ -63,7 +63,7 @@ function prompt {
     
     # Admin indicator
     if ($IsAdmin) {
-        Write-Host "  " -BackgroundColor DarkRed -ForegroundColor Yellow -NoNewline
+	    Write-Host "  " -ForegroundColor DarkRed -NoNewline
         Write-Host "" -ForegroundColor DarkGray -NoNewline
     }
     
