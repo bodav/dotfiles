@@ -18,7 +18,7 @@ precmd() {
     vcs_info
     if [ $timer ]; then
         timer_show=$(($SECONDS - $timer))
-        export RPROMPT="%F{cyan}${timer_show}s%f"
+        export RPROMPT="%F{blue}󱎫 ${timer_show}s%f"
         unset timer
     fi
 }
@@ -60,5 +60,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-PROMPT='%F{cyan}╭─%f %F{cyan}󰉋 %~%f${vcs_info_msg_0_}
-%F{cyan}╰─%f %(?.%F{green}.%F{red})❯%f '
+PROMPT='%F{8}╭─%f %F{green}󰉋 %~%f${vcs_info_msg_0_}
+%F{8}╰─%f %(?.%F{green}.%F{red})❯%f '
