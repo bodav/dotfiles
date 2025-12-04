@@ -65,12 +65,8 @@ function prompt {
     if ($IsAdmin) {
 	    Write-Host "  " -ForegroundColor DarkRed -NoNewline
         Write-Host "" -ForegroundColor DarkGray -NoNewline
+        Write-Host "│" -ForegroundColor DarkGray -NoNewline
     }
-    
-    # User and computer
-    Write-Host " $($env:USERNAME) " -ForegroundColor Cyan -NoNewline
-    
-    Write-Host "│" -ForegroundColor DarkGray -NoNewline
     
     # Path
     Write-Host " 󰝰 " -ForegroundColor Green -NoNewline
@@ -120,7 +116,7 @@ function prompt {
     Write-Host ""
     
     # Bottom line with prompt
-    Write-Host "╰─" -ForegroundColor DarkGray -NoNewline
+    Write-Host "╰─ " -ForegroundColor DarkGray -NoNewline
     
     If ($CmdWasSuccessfull) {
         Write-Host "❯" -ForegroundColor Green -NoNewline
