@@ -46,8 +46,13 @@ bindkey "^[[F" end-of-line
 
 #bindkey "^[[3~" delete-char
 
-alias l='ls -lah --color=auto'
-alias ls='ls -GaA --color=auto'
+# brew/pacman lsd
+alias ls='lsd --group-dirs=first --icon=always -a'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
 alias ..='cd ..'
 alias g='git'
 alias gs='git status'
