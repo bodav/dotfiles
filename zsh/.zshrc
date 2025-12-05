@@ -28,7 +28,7 @@ preexec() {
 }
 
 setopt prompt_subst
-zstyle ':vcs_info:git:*' formats ' %F{magenta}(  %b )%f'
+zstyle ':vcs_info:git:*' formats ' %F{8}|%f %F{yellow} %b%f'
 zstyle ':vcs_info:*' enable git
 
 zstyle ':completion:*' menu select
